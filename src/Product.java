@@ -1,8 +1,9 @@
 // Nikita Volochay 101162520 // 
 // Vimal Gunasegaran 101155249 //
 
-public class Product {
+// Coded By Nikita, Reviewed and Refactored by Vimal//
 
+public class Product {
 
     private int itemID;
     private String itemName;
