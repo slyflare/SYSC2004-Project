@@ -1,83 +1,47 @@
-import java.util.ArrayList;
+public class Product {
 
-public class Inventory {
-    private int[][] stock;
-    private ArrayList<Product> productList = new ArrayList<>();
 
-    public Inventory(int[][] baseInventory, ArrayList<Product> list){
-        this.stock = baseInventory;
-        this.productList = list;
+    private int itemID;
+    private String itemName;
+    private double itemCost;
+
+    public Product(int ID, String name, int cost){
+        this.itemID = ID;
+        this.itemName = name;
+        this.itemCost = cost;
+
     }
 
-    //Getters
+    public int getItemID(){
+        return itemID;
 
-    /**int[][] = {id,stock},{id:102031,stock:3}*/
-    public int getStock(int id){
-        for(int[] i: stock){
-            if(i[0] == id){
-                return i[1];
-            }
-        }
-        System.out.println("Item does not exist in inventory");
-        return -1;
     }
 
-    public String getProductInfo(int id){
-        for(Product p: productList) {
-            if (p.getItemID() == id) {
-                return "Name: " + p.getItemName() + " Price: " + p.getItemCost();
-            }
-        }
-        return "Product does not exist";
+    public String getItemName(){
+        return itemName;
+
     }
 
-    /**Might not be used*/
-    public int[][] getArrayStock() {
-        return stock;
-    }
-    /**Might not be used*/
-    public ArrayList<Product> getProductList() {
-        return productList;
+    public double getItemCost(){
+        return itemCost;
+
     }
 
-    //Setters
+    public void setItemID(int newID){
+        this.itemID = newID;
 
-    public void addStock(int id, int amount){
-        for(int[] i: stock){
-            if(i[0] == id){
-                i[1] += amount;
-            }
-        }
     }
 
-    public void sellStock(int id, int amount){
-        for(int[] i: stock){
-            if(i[0] == id){
-                if((i[1]-amount) < 0){
-                    System.out.println("Amount not available in stock, Stock: " + i[1]);
-                }
-                else{
-                    i[1] -= amount;
-                }
-            }
-        }
+    public void setItemName(String newName){
+        this.itemName = newName;
+
     }
 
-    /**Might not be used*/
-    public void setStock(int[][] stock) {
-        this.stock = stock;
+    public void setItemCost(int newCost){
+        this.itemCost = newCost;
+
     }
 
-    public void addProduct(Product p){
-        this.productList.add(p);
-    }
 
-    public void removeProduct(Product p){
-        this.productList.remove(p);
-    }
 
-    /**Might not be used*/
-    public void setProductList(ArrayList<Product> productList) {
-        this.productList = productList;
-    }
 }
