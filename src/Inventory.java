@@ -1,5 +1,5 @@
-// Nikita Volochay, 101162520 //
-// Vimal Gunasegaran, 101155249//
+// Nikita Volochay 101162520 //
+// Vimal Gunasegaran 101155249//
 
 import java.util.ArrayList;
 
