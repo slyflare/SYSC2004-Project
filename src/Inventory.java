@@ -1,3 +1,5 @@
+// Nikita Volochay, 101162520 //
+
 import java.util.ArrayList;
 
 public class Inventory {
