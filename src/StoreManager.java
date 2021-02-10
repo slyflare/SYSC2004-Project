@@ -10,13 +10,7 @@ public class StoreManager {
         this.inventory = i;
     }
 
-    public int checkStock(String name) {
-        int id = 0;
-        for (Product p : inventory.getProductList()) {
-            if (p.getItemName().equals(name)) {
-                id = p.getItemID();
-            }
-        }
+    public int checkStock(int id) {
         return inventory.getStock(id);
     }
 
