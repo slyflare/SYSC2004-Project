@@ -53,12 +53,7 @@ public class Inventory {
     public void sellStock(int id, int amount){
         for(int[] i: stock){
             if(i[0] == id){
-                if((i[1]-amount) < 0){
-                    System.out.println("Amount not available in stock, Stock: " + i[1]);
-                }
-                else{
-                    i[1] -= amount;
-                }
+                i[1] -= amount;
             }
         }
     }
