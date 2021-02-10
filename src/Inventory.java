@@ -66,10 +66,12 @@ public class Inventory {
         this.stock = stock;
     }
 
+    /**Might not be used*/
     public void addProduct(Product p){
         this.productList.add(p);
     }
-
+    
+    /**Might not be used*/
     public void removeProduct(Product p){
         this.productList.remove(p);
     }
