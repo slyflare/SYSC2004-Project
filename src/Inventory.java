@@ -1,6 +1,8 @@
 // Nikita Volochay 101162520 //
 // Vimal Gunasegaran 101155249//
 
+// Coded By Nikita, Reviewed and Refactored by Vimal//
+
 import java.util.ArrayList;
 
 public class Inventory {
@@ -13,8 +15,6 @@ public class Inventory {
     }
 
     //Getters
-
-    /**int[][] = {id,stock},{id:102031,stock:3}*/
     public int getStock(int id){
         for(int[] i: stock){
             if(i[0] == id){
