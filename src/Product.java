@@ -3,7 +3,7 @@ public class Product {
 
     private int itemID;
     private String itemName;
-    private int itemCost;
+    private double itemCost;
 
     public Product(int ID, String name, int cost){
         this.itemID = ID;
@@ -22,7 +22,7 @@ public class Product {
 
     }
 
-    public int getItemCost(){
+    public double getItemCost(){
         return itemCost;
 
     }
