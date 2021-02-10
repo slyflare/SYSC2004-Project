@@ -1,7 +1,7 @@
 // Vimal Gunasegaran 101155249 //
 // Nikita Volochay 101162520 //
 
-// Coded By Vimal, Reviewed and Refactored by Nikita//
+// Coded by Vimal. Reviewed and refactored by Nikita //
 
 public class StoreManager {
     private Inventory inventory;
