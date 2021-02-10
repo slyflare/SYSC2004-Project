@@ -10,16 +10,16 @@ public class Inventory {
     }
 
     //Getters
-    
+
     /**int[][] = {id,stock},{id:102031,stock:3}*/
     public int getStock(int id){
-        for( int[] i: stock){
+        for(int[] i: stock){
             if(i[0] == id){
                 return i[1];
             }
         }
         System.out.println("Item does not exist in inventory");
-        return 0;
+        return -1;
     }
 
     public String getProductInfo(int id){
@@ -53,11 +53,17 @@ public class Inventory {
     public void sellStock(int id, int amount){
         for(int[] i: stock){
             if(i[0] == id){
-                i[1] -= amount;
+                if((i[1]-amount) < 0){
+                    System.out.println("Amount not available in stock, Stock: " + i[1]);
+                }
+                else{
+                    i[1] -= amount;
+                }
             }
         }
     }
 
+    /**Might not be used*/
     public void setStock(int[][] stock) {
         this.stock = stock;
     }
@@ -70,6 +76,7 @@ public class Inventory {
         this.productList.remove(p);
     }
 
+    /**Might not be used*/
     public void setProductList(ArrayList<Product> productList) {
         this.productList = productList;
     }
