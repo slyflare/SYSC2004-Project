@@ -10,6 +10,8 @@ public class Inventory {
     }
 
     //Getters
+    
+    /**int[][] = {id,stock},{id:102031,stock:3}*/
     public int getStock(int id){
         for( int[] i: stock){
             if(i[0] == id){
