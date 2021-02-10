@@ -8,11 +8,13 @@ public class Product {
     private int itemID;
     private String itemName;
     private double itemCost;
+    private int itemStock;
 
-    public Product(int ID, String name, int cost){
+    public Product(int ID, String name, int cost, int stock){
         this.itemID = ID;
         this.itemName = name;
         this.itemCost = cost;
+        this.itemStock = stock;
 
     }
 
@@ -31,6 +33,10 @@ public class Product {
 
     }
 
+    public int getItemStock(){
+        return itemStock;
+    }
+
     public void setItemID(int newID){
         this.itemID = newID;
 
@@ -46,6 +52,7 @@ public class Product {
 
     }
 
-
-
+    public void setItemStock(int itemStock) {
+        this.itemStock = itemStock;
+    }
 }
