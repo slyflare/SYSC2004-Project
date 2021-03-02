@@ -10,7 +10,7 @@ public class StoreManager {
             this.inventory = i;
         }
 
-        public int checkStock(String name) {
+      /*  public int checkStock(String name) {
             int id = 0;
             for (Product p : inventory.getProductList()) {
                 if (p.getItemName().equals(name)) {
@@ -18,6 +18,17 @@ public class StoreManager {
                 }
             }
             return inventory.getStock(id);
+        } */ 
+        
+        // Code above replaced with code below so that item id is not returned as 0 by default if item name not found.
+        
+         public int checkStock(String name) {
+            for (Product p : inventory.getProductList()) {
+                if (p.getItemName().equals(name)) {
+                    return inventory.getStock(p.getItemID());
+                }
+            }
+           return -1;
         }
 
         public String checkOut(int[][] cart) {
