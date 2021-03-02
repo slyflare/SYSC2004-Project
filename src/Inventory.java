@@ -48,13 +48,30 @@ public class Inventory {
         }
     }
 
+    /*
     public void sellStock(int id, int amount){
         for(Product p: productList){
             if(p.getItemID() == id){
                 p.setItemStock(p.getItemStock()-amount);
             }
         }
+    } */
+    
+    // Code above replaced with code below to account for oversell.
+    
+    public void sellStock(int id, int amount) {
+        for (Product p : productList) {
+            if (p.getItemID() == id) {
+                if (!((p.getItemStock() - amount) < 0)) {
+                    p.setItemStock(p.getItemStock() - amount);
+                }
+                else{
+                    System.out.println("Insufficient stock of " + p.getItemName());
+                }
+            }
+        }
     }
+
 
     public void addProduct(Product p){
         this.productList.add(p);
