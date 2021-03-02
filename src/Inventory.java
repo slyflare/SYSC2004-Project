@@ -39,15 +39,25 @@ public class Inventory {
     }
 
     //Setters
-
+    
+    /*
     public void addStock(int id, int amount){
         for(Product p: productList){
             if(p.getItemID() == id){
                 p.setItemStock(p.getItemStock()+amount);
             }
         }
+    } */
+    
+    // Code above replace with code below to account for non existent products.
+    
+  public void addStock(Product product, int amount){
+        if(!(this.productList.contains(product))){
+            addProduct(product);
+        }
+        product.setItemStock(product.getItemStock() + amount);
     }
-
+    
     /*
     public void sellStock(int id, int amount){
         for(Product p: productList){
