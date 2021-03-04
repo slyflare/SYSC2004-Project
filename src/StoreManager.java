@@ -3,12 +3,13 @@
 
 // Coded by Vimal. Reviewed and refactored by Nikita //
 
-public class StoreManager {
-        private Inventory inventory;
+private static Inventory inventory;
+        private ArrayList<ShoppingCart> cartList;
 
-        public StoreManager(Inventory i) {
-            this.inventory = i;
-        }
+        public StoreManager() {
+        this.inventory = new Inventory();
+        this.cartList = new ArrayList<>();
+    }
 
       /*  public int checkStock(String name) {
             int id = 0;
