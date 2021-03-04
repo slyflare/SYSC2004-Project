@@ -59,7 +59,7 @@ public class StoreManager {
 
     //Shopping cart methods
     public ShoppingCart initialiseCart(){
-        int newID = this.cartList.size();
+        int newID = this.cartList.size()+1;
         ShoppingCart cart = new ShoppingCart(newID);
         this.cartList.add(cart);
         return cart;
