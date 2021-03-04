@@ -8,8 +8,12 @@ import java.util.ArrayList;
 public class Inventory {
     private ArrayList<Product> productList = new ArrayList<>();
 
-    public Inventory(ArrayList<Product> list){
-        this.productList = list;
+    public Inventory(){
+        this.productList.add(new Product(1,"Apple", 1.00,10));
+        this.productList.add(new Product(2,"Orange", 2.50,15));
+        this.productList.add(new Product(3,"Banana",1.25,20));
+        this.productList.add(new Product(4,"Papaya", 5.00,50));
+        this.productList.add(new Product(5,"Durian",100.00,1));
     }
 
     //Getters
