@@ -31,17 +31,37 @@ public class StoreManager {
            return -1;
         }
 
-        public String checkOut(int[][] cart) {
-            double totalPrice = 0;
-            for (int[] c : cart) {
-                for (Product p1 : inventory.getProductList()) {
-                    if (c[0] == p1.getItemID()) {
-                        assert (c[1] < p1.getItemStock()) : "Not enough " + inventory.getProductInfo(p1.getItemID()) + " in stock";
-                        inventory.sellStock(c[0], c[1]);
-                        totalPrice += p1.getItemCost() * c[1];
-                    }
+        public String checkOut(ShoppingCart cart) {
+        double totalPrice = 0;
+        for (Product c: cart.getCart()) {
+            for (Product p : inventory.getProductList()) {
+                if (c.getItemID() == p.getItemID() && c.getItemName().equals(p.getItemName())){
+                    assert (cart.getCartAmount(c.getItemID()) < p.getItemStock()) : "Not enough " + inventory.getProductInfo(p.getItemID()) + " in stock";
+                    inventory.sellStock(c.getItemID(), cart.getCartAmount(c.getItemID()));
+                    totalPrice += c.getItemCost() * cart.getCartAmount(c.getItemID());
                 }
             }
-            return "Total price: $" + totalPrice;
         }
+
+        /* Changed code
+        for (int[] c : cart) {
+            for (Product p1 : inventory.getProductList()) {
+                if (c[0] == p1.getItemID()) {
+                    assert (c[1] < p1.getItemStock()) : "Not enough " + inventory.getProductInfo(p1.getItemID()) + " in stock";
+                    inventory.sellStock(c[0], c[1]);
+                    totalPrice += p1.getItemCost() * c[1];
+                }
+            }
+        }*/
+
+        return "Total price: $" + totalPrice;
     }
+
+    //Shopping cart methods
+    public ShoppingCart initialiseCart(){
+        int newID = this.cartList.size();
+        ShoppingCart cart = new ShoppingCart(newID);
+        this.cartList.add(cart);
+        return cart;
+    }
+}
