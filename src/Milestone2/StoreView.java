@@ -1,3 +1,8 @@
+// Nikita Volochay 101162520 //
+// Vimal Gunasegaran 101155249//
+
+// Coded by Nikita. Reviewed and refactored by Vimal//
+
 import java.util.Scanner;
 import java.util.ArrayList;
 
