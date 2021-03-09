@@ -3,33 +3,32 @@
 
 // Coded by Vimal. Reviewed and refactored by Nikita //
 
+/**
+*Manages most of what happens in the store
+*/
+
 import java.util.ArrayList;
 
 public class StoreManager {
     private Inventory inventory;
     private ArrayList<ShoppingCart> cartList;
 
+    /**
+    *Default constructor of StoreManager
+    */
     public StoreManager() {
         this.inventory = new Inventory();
         this.cartList = new ArrayList<>();
     }
 
-
-    /*  public int checkStock(String name) {
-            int id = 0;
-            for (Product p : inventory.getProductList()) {
-                if (p.getItemName().equals(name)) {
-                    id = p.getItemID();
-                }
-            }
-            return inventory.getStock(id);
-        } */
-
-    // Code above replaced with code below so that item id is not returned as 0 by default if item name not found.
-
+    /**
+    *checks the amount of stock given a product name
+    *@param name String, the product name
+    *@return int, the amount of stock of the given product, returns -1 if product doesn't exist
+    */
     public int checkStock(String name) {
         for (Product p : inventory.getProductList()) {
-            if (p.getItemName().equals(name)) {
+            if (p.getItemName().compareTo(name) == 0) {
                 return inventory.getStock(p.getItemID());
             }
         }
@@ -37,10 +36,19 @@ public class StoreManager {
     }
 
 
+    /**
+    *Gets the StoreManagers inventory
+    *@return Inventory, the StoreManagers inventory
+    */
     public Inventory getInventory(){
         return this.inventory;
     }
-
+    
+    /**
+    *Verifies if all the product amounts in a shoppingcart can be validly be deducted from products stock
+    *@param cartCheck ShoppingCart, the shopping cart that is being checked
+    *@return boolean, true if checkout is possible
+    */
     public boolean verifyCheckOut(ShoppingCart cartCheck) {
         boolean checkStatus = true;
         for (Product c : cartCheck.getItems()) {
@@ -53,6 +61,11 @@ public class StoreManager {
         return checkStatus;
     }
 
+    /**
+    *Returns the total cost of a shopping cart
+    *@param cart ShoppingCart, the cart to be checked
+    *@return String, a string that say "Total price: $" + totalPrice
+    */
     public String checkOut(ShoppingCart cart) {
         double totalPrice = 0;
         for (Product c: cart.getItems()) {
@@ -64,22 +77,15 @@ public class StoreManager {
             }
         }
 
-        /* Changed code
-        for (int[] c : cart) {
-            for (Product p1 : inventory.getProductList()) {
-                if (c[0] == p1.getItemID()) {
-                    assert (c[1] < p1.getItemStock()) : "Not enough " + inventory.getProductInfo(p1.getItemID()) + " in stock";
-                    inventory.sellStock(c[0], c[1]);
-                    totalPrice += p1.getItemCost() * c[1];
-                }
-            }
-        }*/
-
         return "Total price: $" + totalPrice;
     }
 
     //Shopping cart methods
 
+    /**
+    *Initilizes a new ShoppingCart and gives it a uniqueID
+    *@return ShoppingCart, the new shopping cart
+    */
     public ShoppingCart newCart(){
         int max = 0;
         for(ShoppingCart c : cartList){
