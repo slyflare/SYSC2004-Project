@@ -78,17 +78,6 @@ public class Inventory {
 
     //Setters
     
-    /*
-    public void addStock(int id, int amount){
-        for(Product p: productList){
-            if(p.getItemID() == id){
-                p.setItemStock(p.getItemStock()+amount);
-            }
-        }
-    } */
-    
-    // Code above replace with code below to account for non existent products.
-    
     /**
     *Adds stock to the product list
     *@param product Product, the product to be added
@@ -100,17 +89,6 @@ public class Inventory {
         }
         product.setItemStock(product.getItemStock() + amount);
     }
-    
-    /*
-    public void sellStock(int id, int amount){
-        for(Product p: productList){
-            if(p.getItemID() == id){
-                p.setItemStock(p.getItemStock()-amount);
-            }
-        }
-    } */
-    
-    // Code above replaced with code below to account for oversell.
     
     /**
     *Sells an amount of stock given an id
