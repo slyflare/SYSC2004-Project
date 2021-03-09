@@ -5,14 +5,20 @@ public class StoreView {
 
     private ShoppingCart cart;
     private StoreManager storeMan;
-    // public static ArrayList<ShoppingCart> cartList;
 
+    /**
+    *Default StoreView constructor
+    */
     public StoreView(StoreManager storeMan) {
         this.storeMan = storeMan;
         this.cart = storeMan.newCart();
     }
 
 
+    /**
+    *Gets the shopping cart attached to store view
+    *@return ShoppingCart, the cart for this storeview
+    */
     public ShoppingCart getCart() {
         return cart;
     }
