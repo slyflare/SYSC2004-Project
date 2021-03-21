@@ -22,8 +22,10 @@ public class ShoppingCartTest {
     @Test
     public void getItems(){
         ArrayList<Product> test = new ArrayList<>();
-        //idk if i should add something into cart and compare that instead
         assert cart.getItems().equals(test) : "Items in cart was not empty";
+        cart.addToCart(5,1);
+        assert cart.getItems().size() == 1 : "ArrayList returned did not have added item";
+        
     }
 
     @Test
@@ -57,7 +59,7 @@ public class ShoppingCartTest {
         cart.addToCart(5,1);
         cart.removeFromCart(1,1);
         String output = "Apple, 4, ID: 1\n";
-        assert cart.getCartInfo().compareTo(output) == 0: "addToCart didn't add item to cart";
+        assert cart.getCartInfo().compareTo(output) == 0: "removeFromCart didn't remove item from cart";
     }
 
     @Test
