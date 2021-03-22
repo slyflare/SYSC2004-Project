@@ -67,39 +67,4 @@ public class Product {
     public int getItemStock(){
         return itemStock;
     }
-
-    /**
-     *Sets product ID
-     *@param newId int, new product id
-     */
-    public void setItemID(int newID){
-        this.itemID = newID;
-
-    }
-
-    /**
-     *Sets product name
-     *@param newName String, new product name
-     */
-    public void setItemName(String newName){
-        this.itemName = newName;
-
-    }
-
-    /**
-     *Sets product cost
-     *@param newCost double, new product cost
-     */
-    public void setItemCost(double newCost){
-        this.itemCost = newCost;
-
-    }
-
-    /**
-     *Sets product stock
-     *@param itemStock int, new product stock
-     */
-    public void setItemStock(int itemStock) {
-        this.itemStock = itemStock;
-    }
 }
